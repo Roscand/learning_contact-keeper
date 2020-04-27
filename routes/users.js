@@ -1,15 +1,15 @@
 // dependencies
 const express = require('express');
-const bcrypt = require('bcryptjs');
-const { check, validationResult } = require('express-validator/check');
-const jwt = require('jsonwebtoken');
 const config = require('config');
-
-// router
-const router = express.Router();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { check, validationResult } = require('express-validator/check');
 
 // models
 const User = require('../models/User');
+
+// router
+const router = express.Router();
 
 // @route   POST /api/users
 // @desc    register a user
@@ -25,21 +25,26 @@ router.post('/', [
     } else {
         // get the passed values
         const { name, email, password } = req.body;
+        
         try {
             // check if the user already exists
             let user = await User.findOne({ email });
             if (user) { return res.status(400).json({msg: 'User already exists.'}) };
+
             // create a new User object
             user = new User({
                 name, 
                 email, 
                 password
             });
+
             // encrypt the password
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt);
+
             // save the user to the db
             await user.save();
+
             // respond with the token
             const payload = { user: { id: user.id } };
             const options = { expiresIn: 1000 * 60 * 60 };
