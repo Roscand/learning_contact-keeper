@@ -3,7 +3,7 @@ const express = require('express');
 const config = require('config');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 
 // models
 const User = require('../models/User');
@@ -25,7 +25,7 @@ router.post('/', [
     } else {
         // get the passed values
         const { name, email, password } = req.body;
-        
+
         try {
             // check if the user already exists
             let user = await User.findOne({ email });
