@@ -27,14 +27,14 @@ const ContactState = props => {
                 id: 2,
                 name: 'Sara Watson',
                 email: 'sara@gmail.com',
-                phone: '111-111-1111',
+                phone: '222-222-2222',
                 type: 'personal'
             },
             {
-                id: 1,
+                id: 3,
                 name: 'Harry White',
                 email: 'harry@gmail.com',
-                phone: '111-111-1111',
+                phone: '333-333-3333',
                 type: 'professional'
             }
         ]
@@ -61,7 +61,7 @@ const ContactState = props => {
         value={{
             contacts: state.contacts
         }}>
-           { props.children } 
+           { props.children }
         </ContactContext.Provider>
     )
 };
