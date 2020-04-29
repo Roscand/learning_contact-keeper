@@ -1,10 +1,14 @@
 // dependencies //
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 // Context //
 import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../context/alert/alertContext';
 
 const Register = () => {
+    const alertContext = useContext(AlertContext);
+    const { setAlert } = alertContext;
+
     const [user, setUser] = useState({
         name: '',
         email: '',
@@ -17,7 +21,13 @@ const Register = () => {
     const onChange = e => setUser({...user, [e.target.name]: e.target.value});
     const onSubmit = e => {
         e.preventDefault();
-        console.log('Register submit');
+        if (name === '' || email === '' || password === '') {
+            setAlert('Please fill in all the fields', 'info');
+        } else if (password !== password2) {
+            setAlert("Passwords don't match", 'info');
+        } else {
+            console.log('Register submit');
+        };
     };
 
     return (
@@ -26,19 +36,19 @@ const Register = () => {
             <form onSubmit={onSubmit}>
                 <div className="from-group">
                     <label htmlFor="name">Name</label>
-                    <input type="text" name="name" value={name} onChange={onChange} />
+                    <input type="text" name="name" value={name} onChange={onChange} required />
                 </div>
                 <div className="from-group">
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" value={email} onChange={onChange} />
+                    <input type="email" name="email" value={email} onChange={onChange} required />
                 </div>
                 <div className="from-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" value={password} onChange={onChange} />
+                    <input type="password" name="password" value={password} onChange={onChange} required minLength="6" />
                 </div>
                 <div className="from-group">
                     <label htmlFor="password2">Confirm the password</label>
-                    <input type="password" name="password2" value={password2} onChange={onChange} />
+                    <input type="password" name="password2" value={password2} onChange={onChange} required minLength="6" />
                 </div>
                 <input type="submit" value="Register" className="btn btn-primary btn-block" />
             </form>
