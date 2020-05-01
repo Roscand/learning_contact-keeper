@@ -1,6 +1,7 @@
 // dependencies //
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import setAuthToken from './utils/setAuthToken';
 import './App.css';
 
 // contexts //
@@ -17,6 +18,8 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+
+if (localStorage.token) { setAuthToken(localStorage.token) };
 
 const App = () => {
   return (
