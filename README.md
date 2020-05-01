@@ -4,6 +4,8 @@ A full-stack MERN application that helps you keep, search and organise your cont
 
 This project was completed as part of the [React Front to Back](https://www.udemy.com/course/modern-react-front-to-back/) course published by Brad Traversy from TraversyMedia at Udemy.com.
 
+Production [@RoscandContactKeeper](https://roscandcontactkeeper.herokuapp.com/login)
+
 ## Functionality
 
 - Register a user account
@@ -17,7 +19,7 @@ This project was completed as part of the [React Front to Back](https://www.udem
 
 ## Dependencies
 
-| Frontend | Backend |
+| Front-end | Back-end |
 |---|---|
 | react | bcryptjs |
 | react-dom | config |
@@ -27,8 +29,9 @@ This project was completed as part of the [React Front to Back](https://www.udem
 | react-router-dom | mongoose |
 | react-transition-group |  |
 
-Dev dependencies: concurrently, nodemon.
+### Dev dependencies
+- concurrently
+- nodemon
 
-## State
-
+## Current state
 Project finished in May 2020.
