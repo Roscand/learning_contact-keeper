@@ -30,6 +30,7 @@ export default (state, action) => {
         case LOGIN_FAIL:
         case REGISTER_FAIL:
         case AUTH_ERROR:
+        case LOGOUT:
             localStorage.removeItem('CKA_token');
             return {
                 ...state,
