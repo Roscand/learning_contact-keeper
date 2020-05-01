@@ -2,6 +2,8 @@
 
 A full-stack MERN application that helps you keep, search and organise your contacts.
 
+This project was completed as part of the [React Front to Back](https://www.udemy.com/course/modern-react-front-to-back/) course published by Brad Traversy from TraversyMedia at Udemy.com.
+
 ## Functionality
 
 - Register a user account
@@ -26,3 +28,7 @@ A full-stack MERN application that helps you keep, search and organise your cont
 | react-transition-group |  |
 
 Dev dependencies: concurrently, nodemon.
+
+## State
+
+Project finished in May 2020.
